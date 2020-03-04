@@ -63,12 +63,12 @@ class MedsController < ApplicationController
         @med = Meds.find_by_id(params[:id])
         if @med && @med.user == current_user
           if @med.update(content: params[:content])
-            redirect to "/meds/#{@tweet.id}"
+            redirect to "/meds/#{@med.id}"
           else
-            redirect to "/tweets/#{@tweet.id}/edit"
+            redirect to "/meds/#{@med.id}/edit"
           end
         else
-          redirect to '/tweets'
+          redirect to '/meds'
         end
       end
     else
@@ -76,13 +76,13 @@ class MedsController < ApplicationController
     end
   end
 
-  delete '/tweets/:id/delete' do
+  delete '/meds/:id/delete' do
     if logged_in?
-      @tweet = Tweet.find_by_id(params[:id])
-      if @tweet && @tweet.user == current_user
-        @tweet.delete
+      @med = Meds.find_by_id(params[:id])
+      if @med && @med.user == current_user
+        @med.delete
       end
-      redirect to '/tweets'
+      redirect to '/meds'
     else
       redirect to '/login'
     end
