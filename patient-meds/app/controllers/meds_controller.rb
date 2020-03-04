@@ -21,7 +21,7 @@ class MedsController < ApplicationController
       if params[:name] == ""
         redirect to "/meds/new"
       else
-        @med = current_user.meds.build(name: params[:name])
+        @med = current_user.meds.build(name: params[:name], price: params[:price], num_pills: params[:num_pills])
         if @med.save
           redirect to "/meds/#{@med.id}"
         else
