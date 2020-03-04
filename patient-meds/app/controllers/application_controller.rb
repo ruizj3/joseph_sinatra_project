@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :'users/create_user'
+    erb :'users/login'
   end
 
   helpers do
