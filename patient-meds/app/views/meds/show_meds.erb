@@ -1,4 +1,6 @@
 <p><%= @med.name %>
+<p><%= @med.price %>
+<p><%= @med.num_pills %>
 
 <form method="post" action="/meds/<%=@med.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
