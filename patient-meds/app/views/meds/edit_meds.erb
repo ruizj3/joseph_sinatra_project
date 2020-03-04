@@ -1,0 +1,7 @@
+<h2> Edit Medication </h2>
+
+<form method="post" action="/meds/<%=@med.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="name" value="<%= @med.name %>">
+  <input type="submit" value="submit">
+</form>

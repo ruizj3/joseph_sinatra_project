@@ -1,0 +1,16 @@
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+  <form action='/meds' method="post">
+    Medication:
+    <input type="text" name="name"><br>
+    List your medication:
+
+    <input type="submit" name="submit" id="submit">
+
+    <input type="submit" name="submit">
+
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to list medications </h1>
+  <% end %>
