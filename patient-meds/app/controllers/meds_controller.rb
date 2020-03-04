@@ -4,7 +4,8 @@ class MedsController < ApplicationController
       @meds = Meds.all
       erb :'meds/meds'
     else
-      redirect to '/login'
+      "No meds?"
+      #redirect to '/login'
     end
   end
 
