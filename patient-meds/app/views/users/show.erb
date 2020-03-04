@@ -1,0 +1,6 @@
+<p> Here are your medications, <%= @user.username %>
+<% @user.meds.each do |med| %>
+  <div>
+    <%= med.name %>
+  </div>
+<% end %>
