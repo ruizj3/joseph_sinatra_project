@@ -2,7 +2,7 @@ class MedsController < ApplicationController
   get '/meds' do
     if logged_in?
       @meds = Meds.all
-      erb :'meds/tweets'
+      erb :'meds/meds'
     else
       redirect to '/login'
     end
@@ -21,7 +21,7 @@ class MedsController < ApplicationController
       if params[:content] == ""
         redirect to "/meds/new"
       else
-        @med = current_user.tweets.build(content: params[:content])
+        @med = current_user.meds.build(content: params[:content])
         if @med.save
           redirect to "/meds/#{@med.id}"
         else
@@ -35,18 +35,18 @@ class MedsController < ApplicationController
 
   get '/meds/:id' do
     if logged_in?
-      @med = Tweet.find_by_id(params[:id])
-      erb :'tweets/show_tweet'
+      @med = Meds.find_by_id(params[:id])
+      erb :'meds/show_meds'
     else
       redirect to '/login'
     end
   end
 
-  get '/tweets/:id/edit' do
+  get '/meds/:id/edit' do
     if logged_in?
-      @tweet = Meds.find_by_id(params[:id])
+      @med = Meds.find_by_id(params[:id])
       if @med && @med.user == current_user
-        erb :'meds/edit_tweet'
+        erb :'meds/edit_meds'
       else
         redirect to '/meds'
       end
@@ -57,12 +57,12 @@ class MedsController < ApplicationController
 
   patch '/meds/:id' do
     if logged_in?
-      if params[:content] == ""
+      if params[:name] == ""
         redirect to "/meds/#{params[:id]}/edit"
       else
         @med = Meds.find_by_id(params[:id])
         if @med && @med.user == current_user
-          if @med.update(content: params[:content])
+          if @med.update(name: params[:name])
             redirect to "/meds/#{@med.id}"
           else
             redirect to "/meds/#{@med.id}/edit"
