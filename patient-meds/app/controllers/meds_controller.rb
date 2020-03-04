@@ -1,7 +1,7 @@
 class MedsController < ApplicationController
   get '/meds' do
     if logged_in?
-      @meds = Meds.all
+      @meds = Med.all
       erb :'meds/meds'
     else
       redirect to '/login'
@@ -35,7 +35,7 @@ class MedsController < ApplicationController
 
   get '/meds/:id' do
     if logged_in?
-      @med = Meds.find_by_id(params[:id])
+      @med = Med.find_by_id(params[:id])
       erb :'meds/show_meds'
     else
       redirect to '/login'
@@ -44,7 +44,7 @@ class MedsController < ApplicationController
 
   get '/meds/:id/edit' do
     if logged_in?
-      @med = Meds.find_by_id(params[:id])
+      @med = Med.find_by_id(params[:id])
       if @med && @med.user == current_user
         erb :'meds/edit_meds'
       else
@@ -60,7 +60,7 @@ class MedsController < ApplicationController
       if params[:name] == ""
         redirect to "/meds/#{params[:id]}/edit"
       else
-        @med = Meds.find_by_id(params[:id])
+        @med = Med.find_by_id(params[:id])
         if @med && @med.user == current_user
           if @med.update(name: params[:name])
             redirect to "/meds/#{@med.id}"
@@ -78,7 +78,7 @@ class MedsController < ApplicationController
 
   delete '/meds/:id/delete' do
     if logged_in?
-      @med = Meds.find_by_id(params[:id])
+      @med = Med.find_by_id(params[:id])
       if @med && @med.user == current_user
         @med.delete
       end
