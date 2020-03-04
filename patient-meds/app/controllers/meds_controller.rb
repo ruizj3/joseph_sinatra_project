@@ -18,10 +18,10 @@ class MedsController < ApplicationController
 
   post '/meds' do
     if logged_in?
-      if params[:content] == ""
+      if params[:name] == ""
         redirect to "/meds/new"
       else
-        @med = current_user.meds.build(content: params[:content])
+        @med = current_user.meds.build(name: params[:name])
         if @med.save
           redirect to "/meds/#{@med.id}"
         else
