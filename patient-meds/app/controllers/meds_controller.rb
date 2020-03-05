@@ -62,7 +62,7 @@ class MedsController < ApplicationController
       else
         @med = Med.find_by_id(params[:id])
         if @med && @med.user == current_user
-          if @med.update(name: params[:name])
+          if @med.update(name: params[:name], price: params[:price], num_pills: params[:num_pills])
             redirect to "/meds/#{@med.id}"
           else
             redirect to "/meds/#{@med.id}/edit"
