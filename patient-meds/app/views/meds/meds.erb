@@ -1,9 +1,9 @@
 <p> Welcome, <%= current_user.username %>
 <h2> Medications </h2>
-
+<li> Click on medication name to edit</li>
 <% @meds.each do |med| %>
   <div>
-    <%= med.name %> Price: $<%= med.price %> Number of Pills: <%= med.num_pills %>
+  <a href="/meds/<%=med.id%>/edit"><%= med.name %></a> Price: $<%= med.price %> Number of Pills: <%= med.num_pills %>
   </div>
 <% end %>
 <a href="/meds/new">Add Medication?</a>
