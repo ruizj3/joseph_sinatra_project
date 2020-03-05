@@ -4,7 +4,10 @@
 <% @meds.each do |med| %>
   <div>
   <a href="/meds/<%=med.id%>/edit"><%= med.name %></a> Price: $<%= med.price %> Number of Pills: <%= med.num_pills %>
+  <a href="/meds/<%=med.id%>/delete"> Delete Medication</a>
   </div>
 <% end %>
+<div class="navbar">
 <a href="/meds/new">Add Medication?</a>
 <a href="/logout">Logout? </a>
+</div>
