@@ -3,6 +3,6 @@
 
 <% @meds.each do |med| %>
   <div>
-    <%= med.name %>
+    <%= med.name %> Price: $<%= med.price %> Number of Pills: <%= med.num_pills %>
   </div>
 <% end %>
