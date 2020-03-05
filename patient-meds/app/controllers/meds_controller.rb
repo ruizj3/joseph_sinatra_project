@@ -1,7 +1,7 @@
 class MedsController < ApplicationController
   get '/meds' do
     if logged_in?
-      @meds = Med.all
+      @meds = Med.where(user_id: current_user)
       erb :'meds/meds'
     else
       redirect to '/login'
