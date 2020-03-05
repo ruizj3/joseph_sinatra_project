@@ -1,13 +1,12 @@
 <% if logged_in? %>
     <p>Welcome back, <%=current_user.username %></p>
-    
+
   <div class="navbar">
     <a href="/meds">Home </a>
 
     <a href="/meds/new"> Create Medication </a>
 
     <a href="/logout"> Log Out </a>
-
   </div>
 
   <% else %>

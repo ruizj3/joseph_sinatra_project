@@ -81,6 +81,20 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+  .navbar {
+    width: 50%;
+    background-color: #555;
+    overflow: auto;
+  }
+
+  .navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: left;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -113,19 +127,4 @@
     line-height: 24px;
   }
 
-  .navbar {
-    width: 100%;
-    background-color: #444;
-    overflow: auto;
-  }
-
-  .navbar a {
-    float: left;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-    width: 25%;
-    text-align: center;
-  }
 }
