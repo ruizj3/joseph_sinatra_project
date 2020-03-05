@@ -1,17 +1,18 @@
-<h2>Welcome to Medication Watcher!</h2>
-<p>Please signin or signup below:</p>
-
-<nav>
-  <% if logged_in? %>
+<% if logged_in? %>
+    <p>Welcome back, <%=current_user.username %></p>
+    
+  <div class="navbar">
+    <a href="/meds">Home </a>
 
     <a href="/meds/new"> Create Medication </a>
-    
+
     <a href="/logout"> Log Out </a>
-    <p>Welcome, <%=current_user.username %></p>
+
+  </div>
 
   <% else %>
+  <h2>Welcome to Medication Watcher!</h2>
+  <p>Please login or sign up below:</p>
     <a href="/signup">Sign Up</a>
     <a href="/login"> Sign In </a>
   <%end %>
-
-</nav>

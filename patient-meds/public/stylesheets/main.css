@@ -112,4 +112,20 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .navbar {
+    width: 100%;
+    background-color: #444;
+    overflow: auto;
+  }
+
+  .navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%;
+    text-align: center;
+  }
 }
