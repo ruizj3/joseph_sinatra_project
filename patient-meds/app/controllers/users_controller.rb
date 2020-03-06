@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if !logged_in?
-      erb :'users/create_user', locals: {message: "Please sign up before you sign in"}
+      erb :'users/create_user', locals: {message: "We don't recognize that login information. Please sign up before you sign in"}
     else
       redirect to '/meds'
     end
