@@ -1,11 +1,10 @@
 class MedsController < ApplicationController
   get '/meds' do
-    if logged_in?
+    redirect_if_not_logged_in
+
       @meds = Med.where(user_id: current_user)
       erb :'meds/meds'
-    else
-      redirect to '/login'
-    end
+
   end
 
   get '/meds/new' do
